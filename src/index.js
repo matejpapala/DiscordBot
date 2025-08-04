@@ -17,6 +17,8 @@ client.on("ready", (c) => {
 });
 
 client.on("messageCreate", (sentMessage) => {
+  if (sentMessage.author.bot) return;
+
   console.log(sentMessage.content);
   if (sentMessage.author.username === usernameForDeletion) {
     setTimeout(() => {
@@ -35,3 +37,4 @@ client.on("interactionCreate", (interaction) => {
 });
 
 client.login(process.env.TOKEN);
+
